@@ -12,7 +12,7 @@ class Board:
     def __generate_board_squares(self):
         for x in range(0,4):
             for y in range(0,4):
-                self.__squares.append(BoardSquare(BoardSquare.empty_value,x,y))
+                self.__squares.append(BoardSquare(x, y, BoardSquare.empty_value))
 
     def pop_random_square(self):
         empty_squares = [square for square in self.__squares if square.value == BoardSquare.empty_value]
