@@ -1,8 +1,6 @@
 __author__ = 'Binary Ninja'
 class BoardSquare:
     value = 0
-    __x = 0
-    __y = 0
     empty_value = -1
 
     def __init__(self, x, y, value):
