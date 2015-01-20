@@ -1,6 +1,5 @@
 __author__ = 'Binary Ninja'
 class BoardSquare:
-    value = 0
     empty_value = -1
 
     def __init__(self, x, y, value):
@@ -13,3 +12,7 @@ class BoardSquare:
 
     def get_coordinates(self):
         return dict(x=self.x, y=self.y)
+
+    def set_coordinates(self, x, y):
+        self.x = x
+        self.y = y
