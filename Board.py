@@ -4,33 +4,57 @@ import random
 class Board:
     height = 4
     width = 4
-    __squares = []
 
     def __init__(self):
-        self.__generate_board_squares()
+        self.__squares = self.__generate_board_squares()
+        self.game_over = False
 
     def __generate_board_squares(self):
         for x in range(0,4):
             for y in range(0,4):
                 self.__squares.append(BoardSquare(x, y, BoardSquare.empty_value))
 
-    def pop_random_square(self):
+    def __get_random_square(self):
         empty_squares = [square for square in self.__squares if square.value == BoardSquare.empty_value]
         return random.choice(empty_squares)
 
-    def get_random_value(self):
+    def __get_random_value(self):
         return random.randrange(1,3)
 
-    def set_empty_square(self):
-        random_square = self.pop_random_square()
-        random_square.value = self.get_random_value()
+    def __set_empty_square(self):
+        random_square = self.__get_random_square()
+        random_square.value = self.__get_random_value()
 
-    def move(self, x, y):
-        self.combine_squares(x,y)
-        self.shift_squares(x,y)
+    def move(self, deltaX, deltaY):
+        self.__check_game_over()
+        self.__shift_squares(deltaX,deltaY)
+        self.combine_squares(deltaX,deltaY)
+        self.__set_empty_square()
 
-  #  def shift_squares(self, x, y):
-       # if(get_square)
+    def __shift_squares(self, deltaX, deltaY):
+        for square in self.__squares:
+            adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
+            while adjacent_square.value == -1:
+                square.set_coordinates(adjacent_square.get_coordinates())
 
-    def get_square(self, x, y):
+    def __combine_squares(self, deltaX, deltaY):
+        for square in self.__squares:
+            adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
+            while adjacent_square.value == square.value:
+                square.value = -1
+                adjacent_square.value *= 2
+
+    def __get_adjacent_square(square,deltaX, deltaY, self):
+        coordinates = square.get_coordinates()
+        adjacent_coordinates = coordinates['x'] + deltaX, coordinates['y'] + deltaY
+        return self.__get_square(adjacent_coordinates['x'], adjacent_coordinates['y'])
+
+    def __check_game_over(self):
+        if [square for square in self.__squares if square.value == -1] == []:
+            self.game_over = True
+        else:
+            self.game_over = False
+
+
+    def __get_square(self, x, y):
         return [square for square in self.__squares if square.get_coordinates()['x'] == x and square.get_coordinates()['y'] == y]
