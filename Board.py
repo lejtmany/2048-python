@@ -6,10 +6,11 @@ class Board:
     width = 4
 
     def __init__(self):
-        self.__squares = self.__generate_board_squares()
+        self.__generate_board_squares()
         self.game_over = False
 
     def __generate_board_squares(self):
+        self.__squares = []
         for x in range(0,4):
             for y in range(0,4):
                 self.__squares.append(BoardSquare(x, y, BoardSquare.empty_value))
@@ -47,7 +48,7 @@ class Board:
     def __get_adjacent_square(square,deltaX, deltaY, self):
         coordinates = square.get_coordinates()
         adjacent_coordinates = coordinates['x'] + deltaX, coordinates['y'] + deltaY
-        return self.__get_square(adjacent_coordinates['x'], adjacent_coordinates['y'])
+        return self.get_square(adjacent_coordinates['x'], adjacent_coordinates['y'])
 
     def __check_game_over(self):
         if [square for square in self.__squares if square.value == -1] == []:
@@ -56,5 +57,5 @@ class Board:
             self.game_over = False
 
 
-    def __get_square(self, x, y):
-        return [square for square in self.__squares if square.get_coordinates()['x'] == x and square.get_coordinates()['y'] == y]
+    def get_square(self, x, y):
+        return [square for square in self.__squares if square.get_coordinates()['x'] == x and square.get_coordinates()['y'] == y][0]
