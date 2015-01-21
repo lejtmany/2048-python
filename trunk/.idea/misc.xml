@@ -2,6 +2,24 @@
 <project version="4">
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.2 (C:\Python34\python.exe)" project-jdk-type="Python SDK" />
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://2048-python.googlecode.com/svn/branches" />
+                  <option value="https://2048-python.googlecode.com/svn/tags" />
+                  <option value="https://2048-python.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://2048-python.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>
