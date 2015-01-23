@@ -31,20 +31,20 @@ class Board:
     def move(self, deltaX, deltaY):
         self.__check_game_over()
         self.__shift_squares(deltaX,deltaY)
-        self.__combine_squares(deltaX,deltaY)
+       # self.__combine_squares(deltaX,deltaY)
         self.__set_empty_square()
 
     def __shift_squares(self, deltaX, deltaY):
-        for square in self.__squares:
+        non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
+        for square in non_empty_squares:
             adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
-            if adjacent_square == None: continue
-            while adjacent_square.value == BoardSquare.empty_value:
+            while adjacent_square != None and adjacent_square.value == BoardSquare.empty_value:
                 adjacent_square.value, square.value = square.value, BoardSquare.empty_value
-                adjacent_square = self.__get_adjacent_square(adjacent_square, deltaX, deltaY)
-                if adjacent_square == None: break
+                square = adjacent_square
+                adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
 
     def __combine_squares(self, deltaX, deltaY):
-        non_empty_squares = [square for square in self.__squares if square != BoardSquare.empty_value]
+        non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
         for square in non_empty_squares:
             adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
             if adjacent_square == None or adjacent_square.value == BoardSquare.empty_value: continue
