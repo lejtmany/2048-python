@@ -11,12 +11,16 @@ class GUI(Frame):
         Frame.__init__(self,master)
         self.board = Board.Board()
         self.create_labels()
+        self.__update_label_color()
 
     def create_labels(self):
+        self.__labels = {}
         self.__string_vars = self.__generate_stringvars()
         for r in range(self.board.size):
             for c in range(self.board.size):
-                Label(self, textvariable = self.__string_vars[self.board.get_square(c,r)], bd=2, relief=RAISED).grid(row=r, column=c, sticky=N+S+E+W)
+                label = Label(self, height=4,width=8,textvariable = self.__string_vars[self.board.get_square(c,r)], bd=2, relief=RAISED)
+                label.grid(row=r, column=c, sticky=N+S+E+W)
+                self.__labels[self.board.get_square(c,r)] = label
                 self.columnconfigure(c,weight=1)
                 self.rowconfigure(r,weight=1)
 
@@ -30,6 +34,7 @@ class GUI(Frame):
     def move_board(self,x,y):
         self.board.move(x,y)
         self.__update_string_vars()
+        self.__update_label_color()
         if self.board.game_over:
             self.ask_play_again()
 
@@ -40,6 +45,35 @@ class GUI(Frame):
                 string_vars[square] = board_str_var
                 self.__set_string_var(board_str_var, square)
         return string_vars
+
+    def __update_label_color(self):
+        for square in self.board.get_square_list():
+            if square.value == 1:
+                self.__labels[square]["bg"] = "azure"
+            elif square.value == 2:
+                self.__labels[square]["bg"] = "misty rose"
+            elif square.value == 4:
+                self.__labels[square]["bg"] = "peach puff"
+            elif square.value == 8:
+                self.__labels[square]["bg"] = "palegreen1"
+            elif square.value == 16:
+                self.__labels[square]["bg"] = "slategray2"
+            elif square.value == 32:
+                self.__labels[square]["bg"] = "plum1"
+            elif square.value == 64:
+                self.__labels[square]["bg"] = "indianred1"
+            elif square.value == 128:
+                self.__labels[square]["bg"] = "firebrick3"
+            elif square.value == 256:
+                self.__labels[square]["bg"] = "darkorchid2"
+            elif square.value == 512:
+                self.__labels[square]["bg"] = "hotpink2"
+            elif square.value == 1024:
+                self.__labels[square]["bg"] = "cornflowerblue"
+            elif square.value == 2048:
+                self.__labels[square]["bg"] = "red4"
+            elif square.value == BoardSquare.empty_value:
+                self.__labels[square]["bg"] = "gray94"
 
     def __update_string_vars(self):
         for square in self.board.get_square_list():
