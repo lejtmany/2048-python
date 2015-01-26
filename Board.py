@@ -31,6 +31,8 @@ class Board:
         self.__check_game_over()
         self.__shift_squares(deltaX,deltaY)
         self.__combine_squares(deltaX,deltaY)
+        #need to re-shift if open space left by combining
+        self.__shift_squares(deltaX,deltaY)
         self.__set_empty_square()
 
     def __shift_squares(self, deltaX, deltaY):
@@ -38,19 +40,24 @@ class Board:
             non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
             for square in non_empty_squares:
                 adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
-                while adjacent_square != None and adjacent_square.value == BoardSquare.empty_value:
+                while adjacent_square is not None and adjacent_square.value == BoardSquare.empty_value:
                     adjacent_square.value, square.value = square.value, BoardSquare.empty_value
                     square = adjacent_square
                     adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
 
     def __combine_squares(self, deltaX, deltaY):
         non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
+        if deltaX:
+            non_empty_squares.sort(key=lambda item: item.x*-deltaX)
+        elif deltaY:
+            non_empty_squares.sort(key=lambda item: item.y*-deltaY)
         for square in non_empty_squares:
             adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
-            if adjacent_square == None or adjacent_square.value == BoardSquare.empty_value: continue
-            while adjacent_square.value == square.value:
+            if adjacent_square is None or adjacent_square.value == BoardSquare.empty_value:continue
+            if adjacent_square.value == square.value:
                 square.value = BoardSquare.empty_value
                 adjacent_square.value *= 2
+                non_empty_squares.remove(adjacent_square)
 
     def __get_adjacent_square(self,square,deltaX, deltaY):
         coordinates = square.get_coordinates()
