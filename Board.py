@@ -33,7 +33,9 @@ class Board:
         self.__combine_squares(deltaX,deltaY)
         #need to re-shift if open space left by combining
         self.__shift_squares(deltaX,deltaY)
-        self.__set_empty_square()
+        self.__check_game_over()
+        if not self.game_over:
+            self.__set_empty_square()
 
     def __shift_squares(self, deltaX, deltaY):
         for i in range(Board.size):
@@ -65,7 +67,7 @@ class Board:
         return self.get_square(adjacent_coordinates[0], adjacent_coordinates[1])
 
     def __check_game_over(self):
-        if [square for square in self.__squares if square.value == -1] == []:
+        if [square for square in self.__squares if square.value == BoardSquare.empty_value] == []:
             self.game_over = True
         else:
             self.game_over = False

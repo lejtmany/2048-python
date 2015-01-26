@@ -1,6 +1,7 @@
 __author__ = 'Binary_Ninja'
 
 from tkinter import *
+import tkinter.messagebox
 import Board
 from BoardSquare import *
 
@@ -9,6 +10,9 @@ class GUI(Frame):
     def __init__(self, master = NONE):
         Frame.__init__(self,master)
         self.board = Board.Board()
+        self.create_labels()
+
+    def create_labels(self):
         self.__string_vars = self.__generate_stringvars()
         for r in range(self.board.size):
             for c in range(self.board.size):
@@ -16,9 +20,18 @@ class GUI(Frame):
                 self.columnconfigure(c,weight=1)
                 self.rowconfigure(r,weight=1)
 
+    def ask_play_again(self):
+        if tkinter.messagebox.askyesno("Game Over", "Game Over! \n Play Again?"):
+            self.board = Board.Board()
+            self.create_labels()
+        else:
+            sys.exit()
+
     def move_board(self,x,y):
         self.board.move(x,y)
         self.__update_string_vars()
+        if self.board.game_over:
+            self.ask_play_again()
 
     def __generate_stringvars(self):
         string_vars = {}
