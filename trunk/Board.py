@@ -59,7 +59,6 @@ class Board:
             if adjacent_square.value == square.value:
                 square.value = BoardSquare.empty_value
                 adjacent_square.value *= 2
-                non_empty_squares.remove(adjacent_square)
 
     def __get_adjacent_square(self,square,deltaX, deltaY):
         coordinates = square.get_coordinates()

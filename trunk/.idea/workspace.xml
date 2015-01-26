@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="b4ed345a-a75b-4933-aedd-edab0026c79b" name="Default" comment="">
+    <list default="true" readonly="true" id="b4ed345a-a75b-4933-aedd-edab0026c79b" name="Default" comment="fixed a bug in combine&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Board.py" afterPath="$PROJECT_DIR$/Board.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GUI.py" afterPath="$PROJECT_DIR$/GUI.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -37,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Board.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1479">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.6421053" vertical-offset="776" max-vertical-offset="1462">
+              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
               <folding>
                 <element signature="e#28#53#0" expanded="true" />
               </folding>
@@ -49,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GUI.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GUI.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30517712" vertical-offset="755" max-vertical-offset="1785">
-              <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1649">
+              <caret line="21" column="147" selection-start-line="21" selection-start-column="147" selection-end-line="21" selection-end-column="147" />
               <folding>
                 <element signature="e#29#50#0" expanded="true" />
               </folding>
@@ -67,8 +68,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/BoardSquare.py" />
-        <option value="$PROJECT_DIR$/Board.py" />
         <option value="$PROJECT_DIR$/GUI.py" />
+        <option value="$PROJECT_DIR$/Board.py" />
       </list>
     </option>
   </component>
@@ -394,7 +395,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422244372147</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed up gui&#10;now has colors!">
+      <created>1422249315497</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1422249315497</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -470,7 +477,8 @@
     <MESSAGE value="shift now works&#10;combine works but will combine 1-1-2 into 4 in one move" />
     <MESSAGE value="all seems to work not sure if combines in right order &#10;GUI needs work" />
     <MESSAGE value="play again dialogue added at game over" />
-    <option name="LAST_COMMIT_MESSAGE" value="play again dialogue added at game over" />
+    <MESSAGE value="fixed up gui&#10;now has colors!" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed up gui&#10;now has colors!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -624,22 +632,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Board.py">
+    <entry file="file://$PROJECT_DIR$/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1479">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1649">
+          <caret line="21" column="147" selection-start-line="21" selection-start-column="147" selection-end-line="21" selection-end-column="147" />
           <folding>
-            <element signature="e#28#53#0" expanded="true" />
+            <element signature="e#29#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GUI.py">
+    <entry file="file://$PROJECT_DIR$/Board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30517712" vertical-offset="755" max-vertical-offset="1785">
-          <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.6421053" vertical-offset="776" max-vertical-offset="1462">
+          <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
           <folding>
-            <element signature="e#29#50#0" expanded="true" />
+            <element signature="e#28#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
