@@ -10,8 +10,8 @@ class GUI(Frame):
         Frame.__init__(self,master)
         self.board = Board.Board()
         self.__string_vars = self.__generate_stringvars()
-        for r in range(self.board.height):
-            for c in range(self.board.width):
+        for r in range(self.board.size):
+            for c in range(self.board.size):
                 Label(self, textvariable = self.__string_vars[self.board.get_square(c,r)], bd=2, relief=RAISED).grid(row=r, column=c, sticky=N+S+E+W)
                 self.columnconfigure(c,weight=1)
                 self.rowconfigure(r,weight=1)

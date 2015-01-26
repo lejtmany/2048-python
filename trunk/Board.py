@@ -2,8 +2,7 @@ __author__ = 'Binary Ninja'
 from BoardSquare import *
 import random
 class Board:
-    height = 4
-    width = 4
+    size = 4
 
     def __init__(self):
         self.__squares = self.__generate_board_squares()
@@ -31,17 +30,18 @@ class Board:
     def move(self, deltaX, deltaY):
         self.__check_game_over()
         self.__shift_squares(deltaX,deltaY)
-       # self.__combine_squares(deltaX,deltaY)
+        self.__combine_squares(deltaX,deltaY)
         self.__set_empty_square()
 
     def __shift_squares(self, deltaX, deltaY):
-        non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
-        for square in non_empty_squares:
-            adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
-            while adjacent_square != None and adjacent_square.value == BoardSquare.empty_value:
-                adjacent_square.value, square.value = square.value, BoardSquare.empty_value
-                square = adjacent_square
+        for i in range(Board.size):
+            non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
+            for square in non_empty_squares:
                 adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
+                while adjacent_square != None and adjacent_square.value == BoardSquare.empty_value:
+                    adjacent_square.value, square.value = square.value, BoardSquare.empty_value
+                    square = adjacent_square
+                    adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
 
     def __combine_squares(self, deltaX, deltaY):
         non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
