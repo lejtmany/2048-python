@@ -75,7 +75,9 @@ class GUI(Frame):
         self.__color_dict[512] = "hotpink2"
         self.__color_dict[1024] = "cornflowerblue"
         self.__color_dict[2048] = "red4"
-        self.__color_dict[BoardSquare.empty_value] = "white"
+        self.__color_dict[4096]="forest green"
+        self.__color_dict[8192]="RoyalBlue3"
+        self.__color_dict[BoardSquare.empty_value] = "black"
 
 if __name__ == '__main__':
     root = Tk()
