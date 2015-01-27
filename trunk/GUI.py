@@ -63,7 +63,7 @@ class GUI(Frame):
 
     def __init_color_dict(self):
         self.__color_dict = {}
-        self.__color_dict[1] = "azure"
+        self.__color_dict[1] = "thistle"
         self.__color_dict[2] = "misty rose"
         self.__color_dict[4] = "peach puff"
         self.__color_dict[8] = "palegreen1"
@@ -75,7 +75,7 @@ class GUI(Frame):
         self.__color_dict[512] = "hotpink2"
         self.__color_dict[1024] = "cornflowerblue"
         self.__color_dict[2048] = "red4"
-        self.__color_dict[BoardSquare.empty_value] = "gray94"
+        self.__color_dict[BoardSquare.empty_value] = "white"
 
 if __name__ == '__main__':
     root = Tk()
