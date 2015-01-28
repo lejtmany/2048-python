@@ -11,8 +11,8 @@ class Board:
 
     def __generate_board_squares(self):
         squares = []
-        for x in range(0,4):
-            for y in range(0,4):
+        for x in range(4):
+            for y in range(4):
                 squares.append(BoardSquare(x, y, BoardSquare.empty_value))
         return squares
 
