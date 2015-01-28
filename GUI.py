@@ -12,18 +12,22 @@ class GUI(Frame):
         self.__init_color_dict()
         self.board = Board.Board()
         self.create_labels()
+        self.__update_values()
         self.__update_label_color()
+
+    def __create_label(self, square):
+        label = Label(self, height=4, width=8, bd=2, relief=RAISED, font="bold")
+        label.grid(column=square.x, row=square.y, sticky=N + S + E + W)
+        self.__labels[square] = label
+
 
     def create_labels(self):
         self.__labels = {}
-        self.__string_vars = self.__generate_stringvars()
         for r in range(self.board.size):
             for c in range(self.board.size):
-                label = Label(self, height=4,width=8,textvariable = self.__string_vars[self.board.get_square(c,r)], bd=2, relief=RAISED, font="bold")
-                label.grid(row=r, column=c, sticky=N+S+E+W)
-                self.__labels[self.board.get_square(c,r)] = label
-                self.columnconfigure(c,weight=1)
-                self.rowconfigure(r,weight=1)
+                self.__create_label(self.board.get_square(c, r))
+                self.columnconfigure(c, weight=1)
+                self.rowconfigure(r, weight=1)
 
     def ask_play_again(self):
         if tkinter.messagebox.askyesno("Game Over", "Game Over! \n Play Again?"):
@@ -34,26 +38,18 @@ class GUI(Frame):
 
     def move_board(self,x,y):
         self.board.move(x,y)
-        self.__update_string_vars()
+        self.__update_values()
         self.__update_label_color()
         if self.board.game_over:
             self.ask_play_again()
-
-    def __generate_stringvars(self):
-        string_vars = {}
-        for square in self.board.get_square_list():
-                board_str_var =  StringVar()
-                string_vars[square] = board_str_var
-                self.__set_string_var(board_str_var, square)
-        return string_vars
 
     def __update_label_color(self):
         for square in self.board.get_square_list():
             self.__labels[square]["bg"] = self.__color_dict[square.value]
 
-    def __update_string_vars(self):
+    def __update_values(self):
         for square in self.board.get_square_list():
-            self.__set_string_var(self.__string_vars[square], square)
+            self.__labels[square]['text'] = square.value
 
     def __set_string_var(self, str_var ,square):
          if square.value == BoardSquare.empty_value:
