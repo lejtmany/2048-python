@@ -40,8 +40,8 @@
       <file leaf-file-name="Board.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6055276" vertical-offset="1285" max-vertical-offset="1683">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.59799" vertical-offset="0" max-vertical-offset="1683">
+              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="e#28#53#0" expanded="true" />
               </folding>
@@ -52,8 +52,8 @@
       <file leaf-file-name="GUI.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GUI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1683">
-              <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1683">
+              <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
               <folding>
                 <element signature="e#29#50#0" expanded="true" />
               </folding>
@@ -67,8 +67,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/BoardSquare.py" />
-        <option value="$PROJECT_DIR$/GUI.py" />
         <option value="$PROJECT_DIR$/Board.py" />
+        <option value="$PROJECT_DIR$/GUI.py" />
       </list>
     </option>
   </component>
@@ -425,7 +425,13 @@
       <option name="project" value="LOCAL" />
       <updated>1422420663189</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="more refactoring by square shifting">
+      <created>1422421095381</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1422421095381</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -506,7 +512,8 @@
     <MESSAGE value="now doesnt add a new square when nothing shifts or combines" />
     <MESSAGE value="changed blank squares to black" />
     <MESSAGE value="refactored board.py alot" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored board.py alot" />
+    <MESSAGE value="more refactoring by square shifting" />
+    <option name="LAST_COMMIT_MESSAGE" value="more refactoring by square shifting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -667,6 +674,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47592068" vertical-offset="25791" max-vertical-offset="66368">
           <caret line="1527" column="0" selection-start-line="1527" selection-start-column="0" selection-end-line="1527" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -688,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1683">
-          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1683">
+          <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
           <folding>
             <element signature="e#29#50#0" expanded="true" />
           </folding>
@@ -698,8 +706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6055276" vertical-offset="1285" max-vertical-offset="1683">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.59799" vertical-offset="0" max-vertical-offset="1683">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
           <folding>
             <element signature="e#28#53#0" expanded="true" />
           </folding>
