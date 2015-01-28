@@ -37,7 +37,6 @@ class Board:
         if not self.game_over and self.__changed:
             self.__set_empty_square()
 
-
     def __shift_squares(self, deltaX, deltaY):
         for i in range(Board.size):
             non_empty_squares = [square for square in self.__squares if square.value != BoardSquare.empty_value]
@@ -46,13 +45,11 @@ class Board:
 
     def __try_shift_squares(self,square, deltaX, deltaY):
         adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
-        while adjacent_square is not None and adjacent_square.value == BoardSquare.empty_value:
-            self.__shift_square(adjacent_square, deltaX, deltaY, square)
+        if adjacent_square is not None and adjacent_square.value == BoardSquare.empty_value:
+            self.__shift_square(adjacent_square, square)
 
-    def __shift_square(self, adjacent_square, deltaX, deltaY, square):
+    def __shift_square(self, adjacent_square, square):
         adjacent_square.value, square.value = square.value, BoardSquare.empty_value
-        square = adjacent_square
-        adjacent_square = self.__get_adjacent_square(square, deltaX, deltaY)
         self.__changed = True
 
     def __combine_squares(self, deltaX, deltaY):
