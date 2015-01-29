@@ -1,4 +1,6 @@
 __author__ = 'Binary Ninja'
+
+
 class BoardSquare:
     empty_value = -1
 
