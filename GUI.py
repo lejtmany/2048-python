@@ -23,11 +23,8 @@ class GUI(Frame):
 
     def create_labels(self):
         self.__labels = {}
-        for r in range(self.board.size):
-            for c in range(self.board.size):
-                self.__create_label(self.board.get_square(c, r))
-                self.columnconfigure(c, weight=1)
-                self.rowconfigure(r, weight=1)
+        for square in self.board.get_square_list():
+            self.__create_label(self.board.get_square(square.x, square.y))
 
     def ask_play_again(self):
         if tkinter.messagebox.askyesno("Game Over", "Game Over! \n Play Again?"):
@@ -50,12 +47,6 @@ class GUI(Frame):
     def __update_values(self):
         for square in self.board.get_square_list():
             self.__labels[square]['text'] = square.value
-
-    def __set_string_var(self, str_var ,square):
-         if square.value == BoardSquare.empty_value:
-             str_var.set("")
-         else:
-            str_var.set(str(square.value))
 
     def __init_color_dict(self):
         self.__color_dict = {}
